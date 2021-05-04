@@ -13,14 +13,14 @@ using Wilder;
 // For most of our projects, game-specific code exists in the Game namespace, or in a child of Game (Game.Player, Game.Enemies, etc)
 namespace Game
 // Opening brackets should exist alone on a new line
-{
-	// If it's necessary for Interfaces to share a file, the should come before Class declarations
+{		
+	// Any non-nested Interfaces should exist before Class declarations
 	// Interfaces should always start with an I
 	public interface IExampleInterface
 	{
 	}
 	
-	// If it's necessary for Enums to exist in the same file, they should come before Class declarations
+	// Any non-nested Enums should exist before Class declarations
 	public enum ExampleEnum
 	{
 		// Enum value names should be PascalCase
@@ -28,7 +28,6 @@ namespace Game
 		SecondEnumValue
 	}
 	
-	// Similar to Enums, if flag enums are required to exist the same file, they should come before Class declarations
 	// Flags should use the [Flags] attribute, inherit from uint, and may use bitshifting for easy setup and readability 
 	[Flags]
 	public enum ExampleFlags : uint
@@ -43,14 +42,16 @@ namespace Game
 		// etc.
 	}
 	
-	// Classes should be indented in the namespace
+	// Classes should exist in order of importance. Use your best judgement for this.
 	public class ExampleClass : MonoBehaviour
 	{
-		// All sections and subsections may be wrapped in #regions for easily readability
+		// #regions may optionally be used for easy readability and organization
 		// This is usefull in large classes, or classes with many different blocks of functionality.
-		// All #region blocks below are optional, but recommended as your class becomes more complex
-		// Use your best judgement for using #regions. If you only have two public fields, it probably isn't necessary to store them in a #region
 
+		// All #region blocks are optional, but recommended as your code grows in complexity. Use your best judgement when adding #region blocks.
+		// If you only have two public fields, it probably isn't necessary to store them in a #region block, however..
+		// if you have 25 fields, 13 properties, and 10 methods that can be grouped into two or three blocks of functionality, then #region blocks are your friend.
+	
 		#region Constants
 		// constants should come first, before any other variables or fields
 		// constants should use UPPER_SNAKE_CASE, and be sorted in accessibility order (publics first, privates last)
@@ -103,29 +104,28 @@ namespace Game
 		#endregion
 
 		#region MonoBehaviour Methods
-		// next, any MonoBehaviour (built-in Unity methods) above most other methods
-		// The order of your MonoBehaviour methods should be in order-of-execution, as Unity would call them
-		// Your OnEnable, Awake, Start methods would be at the top, with Update below, followed by OnDisable, OnDestroy, etc
-		// These can optionally be wrapped in a `#region MonoBehaviour Methods` block for readability
-		void Awake()
+		// MonoBehaviour functions (built-in Unity methods) come next, below all field declarations but above most other methods, sorted by Unity's order of execution
+		// For example: OnEnable, Awake, Start methods would be at the top, with Update below them, followed by OnDisable, OnDestroy, etc
+		// Accessibility should usually be `protected virtual` in base classes, unless otherwise necessary. This allows for OOP and inheritance which becomes very necessary in larger projects.
+		protected virtual void Awake()
 		{
 			// code
 		}
 
-		void Start()
+		protected virtual void Start()
 		{
 			StartFunction1();
 			// code
 		}
 
-		void Update()
+		protected virtual void Update()
 		{
 			UpdateExampleFunction1(true);
 			UpdateExampleFunction2(false, 100);
 			// code
 		}
 
-		void OnDisable()
+		protected virtual void OnDisable()
 		{
 			// code
 		}
