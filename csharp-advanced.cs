@@ -74,8 +74,12 @@ namespace Game
 		#endregion
 
 		#region Private Fields
-		// private fields come next, under the public fields
+		// private fields come next, any public fields
 		// private fields use _camelCase, always starting with an underscore
+		// Serialized private fields should be listed above non-serialized privates, optionally separated by an empty line
+		[SerializedField]
+		private GameObject _exampleSerializedPrivate;
+		
 		private int _exampleInteger = 0;
 		private string _exampleString = "";
 		#endregion
@@ -103,7 +107,6 @@ namespace Game
 		// The order of your MonoBehaviour methods should be in order-of-execution, as Unity would call them
 		// Your OnEnable, Awake, Start methods would be at the top, with Update below, followed by OnDisable, OnDestroy, etc
 		// These can optionally be wrapped in a `#region MonoBehaviour Methods` block for readability
-
 		void Awake()
 		{
 			// code
@@ -126,7 +129,6 @@ namespace Game
 		{
 			// code
 		}
-
 		#endregion
 
 		// The rest of your methods/functions come next.
@@ -146,12 +148,14 @@ namespace Game
 		{
 			// code
 		}
-
+		
+		#region Coroutines
 		// Coroutines come next. Couroutine names should use PascalCase, and should end with "Coroutine"
 		public IEnumerator WaitForSecondsCoroutine()
 		{
 			yield return null;
 		}
+		#endregion
 
 		// Optionally, complex or related blocks of code can come next, wrapped in their own #region blocks
 		// These regions may each be styled the same way as a class, depending on complexity
