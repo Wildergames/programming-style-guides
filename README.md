@@ -1,2 +1,2 @@
-# code-standards
-Wilder's official coding standards and style guides
+# programming-style-guides
+Wilder's official internal coding standards and style guides for various programming languages
