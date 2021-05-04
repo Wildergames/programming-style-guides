@@ -1,4 +1,4 @@
-// usings come first, sorted by name, but with System usings at the very top
+// usings/includes come first, sorted by name, but with System includes at the very top
 // Keep different namespace roots separated by an empty line
 
 using System;
@@ -26,11 +26,10 @@ namespace Game
 		// constants should use UPPER_SNAKE_CASE, and be sorted in accessibility order (publics first, privates last)
 		public const bool IS_ENABLED = false;
 
-		// const may be substituted with `readonly static` if necessary, using the same naming schemes
-		public readonly static Object EXAMPLE_READONLY_STATIC = new Object();
-		
 		// Fields of all types sorted in accessibility order may have optional empty lines between accessibility groups
 		private const string EXAMPLE_CONSTANT_STRING = "example string";
+
+		// const may be substituted with `readonly static` if necessary, using the same naming schemes
 		private readonly static Vector2 UP = new Vector2(0, 1);
 		#endregion
 
