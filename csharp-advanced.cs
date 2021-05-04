@@ -1,4 +1,4 @@
-// usings/includes come first, sorted by name, but with System includes at the very top
+// At the top of each file should be any `usings` or `includes`, sorted by name, with System usings listed before all others
 // Keep different namespace roots separated by an empty line
 
 using System;
@@ -9,10 +9,40 @@ using Game.Players;
 
 using Wilder;
 
-// next, each class should exist in a namespace, usually Game or a child of Game (Game.System, etc)
-// Opening brackets { should exist alone on a new line
+// Each class should exist in a namespace. Failing to add a namespace may cause compilation conflicts.
+// For most of our projects, game-specific code exists in the Game namespace, or in a child of Game (Game.Player, Game.Enemies, etc)
 namespace Game
+// Opening brackets should exist alone on a new line
 {
+	// If it's necessary for Interfaces to share a file, the should come before Class declarations
+	// Interfaces should always start with an I
+	public interface IExampleInterface
+	{
+	}
+	
+	// If it's necessary for Enums to exist in the same file, they should come before Class declarations
+	public enum ExampleEnum
+	{
+		// Enum value names should be PascalCase
+		FirstEnumValue,
+		SecondEnumValue
+	}
+	
+	// Similar to Enums, if flag enums are required to exist the same file, they should come before Class declarations
+	// Flags should use the [Flags] attribute, inherit from uint, and may use bitshifting for readability 
+	[Flags]
+	public enum ExampleFlags : uint
+	{
+		None		= 0,		// = 0
+		
+		One		= 1 << 0,	// = 1
+		Two		= 1 << 1,	// = 2
+		Three		= 1 << 2,	// = 4
+		Four		= 1 << 3,	// = 8
+		Five		= 1 << 4,	// = 16
+		// etc.
+	}
+	
 	// Classes should be indented in the namespace
 	public class ExampleClass : MonoBehaviour
 	{
@@ -123,15 +153,16 @@ namespace Game
 			yield return null;
 		}
 
-		// Optionally, complex or related blocks of code can come next, wrapped in #region blocks
+		// Optionally, complex or related blocks of code can come next, wrapped in their own #region blocks
 		// These regions may each be styled the same way as a class, depending on complexity
-		// Use your best judgement to tell if these #region blocks are necessary, and what whould be in them
-		// A #region may contain only functions, or if complex enough, can contain other fields as well
-		#region Player
+		// Use your best judgement to tell if these #region blocks are necessary, and what whould be in them. 
+		// A #region may contain similar functions, or similar functions and properties, or entire classes and property groups if complex enough
+		#region Player Data
 		private Player _player;
 		private Vector3 _playerPosition;
 
 		public delegate void PlayerEventHandler();
+		public event PlayerEventHandler OnPlayerWalkEvent;
 		public event PlayerEventHandler OnPlayerJumpEvent;
 
 		public void PlayerWalk()
@@ -144,5 +175,11 @@ namespace Game
 			// ..
 		}
 		#endregion
+		
+		// Finally, nested Classes should be styled the same as regular classes, and exist below all other class content
+		public class NestedClassExample
+		{
+			// code
+		}
 	}
 }
