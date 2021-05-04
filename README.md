@@ -5,9 +5,9 @@ Each language is split into **Basic** and **Advanced** for users of different pr
 
 ## C#
 
-Basic: (csharp-basic.cs)
+Basic: [csharp-basic.cs](csharp-basic.cs)
 
-Advanced: (csharp-advanced.cs)
+Advanced: [csharp-advanced.cs](csharp-advanced.cs)
 
 
 
