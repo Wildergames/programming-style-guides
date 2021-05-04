@@ -42,7 +42,13 @@ namespace Game
 		// etc.
 	}
 	
-	// Classes should exist in order of importance. Use your best judgement for this.
+	// For classes with generic type parameters, each type parameter should start with T
+	// If more than one type parameter is used, each should have a descriptive name after the T
+	public class ExampleGenericClass<TKey, TValue>
+	{
+	}
+	
+	// Classes should usually exist in order of importance. Use your best judgement for this.
 	public class ExampleClass : MonoBehaviour
 	{
 		// #regions may optionally be used for easy readability and organization
@@ -89,7 +95,7 @@ namespace Game
 		// properties are next, in order of accessibility
 		// Properties should always be PascalCase
 		public bool ExampleProperty1 { get; private set; }
-		public string ExampleProperty2 => _exampleInteger;
+		public string ExampleProperty2 => _exampleString;
 
 		private int ExampleProperty3 { get { return _exampleInteger; } }
 		#endregion
@@ -102,32 +108,33 @@ namespace Game
 		public event OnExampleHandler OnExampleEvent1;
 		public event OnExampleHandler OnExampleEvent2;
 		#endregion
-
+		
+		#region Abstracts
+		// For `abstract` classes, abstract declarations should exist below your fields, propreties and events, and above your class's methods.
+		public abstract bool ExampleAbstractMethod();
+		#endregion
+		
 		#region MonoBehaviour Methods
 		// MonoBehaviour functions (built-in Unity methods) come next, below all field declarations but above most other methods, sorted by Unity's order of execution
 		// For example: OnEnable, Awake, Start methods would be at the top, with Update below them, followed by OnDisable, OnDestroy, etc
 		// Accessibility should usually be `protected virtual` in base classes, unless otherwise necessary. This allows for OOP and inheritance which becomes very necessary in larger projects.
 		protected virtual void Awake()
 		{
-			// code
 		}
 
 		protected virtual void Start()
 		{
 			StartFunction1();
-			// code
 		}
 
 		protected virtual void Update()
 		{
 			UpdateExampleFunction1(true);
 			UpdateExampleFunction2(false, 100);
-			// code
 		}
 
 		protected virtual void OnDisable()
 		{
-			// code
 		}
 		#endregion
 
@@ -136,17 +143,14 @@ namespace Game
 		// These should be listed in order of execution.
 		private void StartFunction1()
 		{
-			// code
 		}
 
 		private void UpdateExampleFunction1(bool exampleArgument1)
 		{
-			// code
 		}
 
 		private void UpdateExampleFunction2(bool exampleArgument1, int exampleArgument2)
 		{
-			// code
 		}
 		
 		#region Coroutines
@@ -161,6 +165,7 @@ namespace Game
 		// These regions may each be styled the same way as a class, depending on complexity
 		// Use your best judgement to tell if these #region blocks are necessary, and what whould be in them. 
 		// A #region may contain similar functions, or similar functions and properties, or entire classes and property groups if complex enough
+		// For example:
 		#region Player Data
 		private Player _player;
 		private Vector3 _playerPosition;
@@ -180,7 +185,7 @@ namespace Game
 		}
 		#endregion
 		
-		// Finally, nested Classes should be styled the same as regular classes, and exist below all other class content
+		// Nested Classes should be styled the same as regular classes, and exist below all other class content
 		public class NestedClassExample
 		{
 			// code
