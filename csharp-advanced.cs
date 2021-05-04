@@ -29,7 +29,7 @@ namespace Game
 	}
 	
 	// Similar to Enums, if flag enums are required to exist the same file, they should come before Class declarations
-	// Flags should use the [Flags] attribute, inherit from uint, and may use bitshifting for readability 
+	// Flags should use the [Flags] attribute, inherit from uint, and may use bitshifting for easy setup and readability 
 	[Flags]
 	public enum ExampleFlags : uint
 	{
