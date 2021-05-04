@@ -1,10 +1,11 @@
-// usings come first, sorted by name
+// At the top of each file should be any `usings` or `includes`, sorted by name
 using System;
 
-// next, each class should exist in a namespace, usually Game or a child of Game (Game.System, etc)
+// Each class should exist in a namespace
+// For most of our projects, game-specific code exists in the Game namespace, or in a child of Game (Game.Player, Game.Enemies, etc)
 namespace Game
 {
-	// Classes should be indented in the namespace
+	// Nothing should come between your namespace declaration and your class
 	public class ExampleClass : MonoBehaviour
 	{
 		// public fields come first, at the top of your class, and use PascalCase naming
@@ -15,9 +16,9 @@ namespace Game
 		private int _exampleInteger = 0;
 		private string _exampleString = "";
 
-		// next, any MonoBehaviour (built-in Unity methods) above most other methods
-		// The order of your MonoBehaviour methods should be in order-of-execution, as Unity would call them
-		// Your OnEnable, Awake, Start methods would be at the top, with Update below, followed by OnDisable, OnDestroy, etc
+		// MonoBehaviour functions (built-in Unity methods) come next, below all field declarations but above most other methods
+		// The order of your MonoBehaviour methods should be in order-of-execution, as Unity would call them 
+		// For example: OnEnable, Awake, Start methods would be at the top, with Update below them, followed by OnDisable, OnDestroy, etc
 		void Awake()
 		{
 			// code
@@ -26,14 +27,12 @@ namespace Game
 		void Start()
 		{
 			StartFunction1();
-			// code
 		}
 
 		void Update()
 		{
 			UpdateExampleFunction1(true);
 			UpdateExampleFunction2(false, 100);
-			// code
 		}
 
 		void OnDisable()
@@ -43,7 +42,7 @@ namespace Game
 
 		// Under your MonoBehaviour methods is where the rest of your methods/functions should go.
 		// Method names are CamelCase, and arguments (member variables) are camelCase without underscores
-		// These should be in order of execution, or as close as possible.
+		// These should be listed in order of execution
 		private void StartFunction1()
 		{
 			// code
