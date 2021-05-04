@@ -41,8 +41,8 @@ namespace Game
 
 		// Under your MonoBehaviour methods is where the rest of your methods/functions should go.
 		// Method names are CamelCase, and arguments (member variables) are camelCase without underscores
-		// These should be listed in order of execution
-		private void StartFunction1()
+		// These should be listed in order of importance with an emphasis on accessability (public first, private last) while keeping order of execution in mind
+		public void StartFunction1()
 		{
 		}
 
