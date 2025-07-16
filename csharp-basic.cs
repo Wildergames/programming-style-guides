@@ -13,9 +13,9 @@ namespace Game
 		public bool IsEnabled = false;
 
 		// private fields come next, under the public fields
-		// private fields use _camelCase, always starting with an underscore
-		private int _exampleInteger = 0;
-		private string _exampleString = "";
+		// private fields use camelCase, never starting with an underscore
+		private int exampleInteger = 0;
+		private string exampleString = "";
 
 		// MonoBehaviour functions (built-in Unity methods) come next, below all field declarations but above most other methods
 		// The order of your MonoBehaviour methods should be in order-of-execution, as Unity would call them 
