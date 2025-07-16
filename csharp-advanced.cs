@@ -109,15 +109,15 @@ namespace Game
 		public event OnExampleHandler OnExampleEvent2;
 		#endregion
 		
-		#region Abstracts
+		#region Abstract Methods
 		// For `abstract` classes, abstract declarations should exist below your fields, propreties and events, and above your class's methods.
 		public abstract bool ExampleAbstractMethod();
 		#endregion
 		
-		#region MonoBehaviour Methods
-		// MonoBehaviour functions (built-in Unity methods) come next, below all field declarations but above most other methods, sorted by Unity's order of execution
+		#region Unity MonoBehaviour Methods
+		// Unity MonoBehaviour methods (built-in Unity functions) come next, below all field declarations but above most other methods, sorted by Unity's order of execution
 		// For example: OnEnable, Awake, Start methods would be at the top, with Update below them, followed by OnDisable, OnDestroy, etc
-		// Accessibility should usually be `protected virtual` in base classes, unless otherwise necessary. This allows for OOP and inheritance which becomes very necessary in larger projects.
+		// Accessibility should usually be set to `protected virtual` in base classes, unless otherwise necessary. This allows for OOP and inheritance which becomes very necessary in larger projects.
 		protected virtual void Awake()
 		{
 		}
