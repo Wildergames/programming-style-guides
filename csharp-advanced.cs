@@ -82,13 +82,13 @@ namespace Game
 
 		#region Private Fields
 		// private fields come next, any public fields
-		// private fields use _camelCase, always starting with an underscore
+		// private fields use camelCase, never starting with an underscore
 		// Serialized private fields should be listed above non-serialized privates, optionally separated by an empty line
 		[SerializedField]
 		private GameObject _exampleSerializedPrivate;
 		
-		private int _exampleInteger = 0;
-		private string _exampleString = "";
+		private int exampleInteger = 0;
+		private string exampleString = "";
 		#endregion
 
 		#region Properties
@@ -163,12 +163,12 @@ namespace Game
 
 		// Optionally, complex or related blocks of code can come next, wrapped in their own #region blocks
 		// These regions may each be styled the same way as a class, depending on complexity
-		// Use your best judgement to tell if these #region blocks are necessary, and what whould be in them. 
+		// Use your best judgement to decide if these #region blocks are necessary, and what whould be in them. 
 		// A #region may contain similar functions, or similar functions and properties, or entire classes and property groups if complex enough
 		// For example:
 		#region Player Data
-		private Player _player;
-		private Vector3 _playerPosition;
+		private Player player;
+		private Vector3 playerPosition;
 
 		public delegate void PlayerEventHandler();
 		public event PlayerEventHandler OnPlayerWalkEvent;
